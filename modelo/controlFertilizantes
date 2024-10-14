@@ -1,0 +1,9 @@
+from modelo.productoControl import ProductoControl
+
+class ControlFertilizantes(ProductoControl):
+    def __init__(self, nombre, precio, fecha_ultima_aplicacion):
+        super().__init__(nombre, precio)
+        self.fecha_ultima_aplicacion = fecha_ultima_aplicacion
+
+    def mostrarFecha(self):
+        return self.fecha_ultima_aplicacion
