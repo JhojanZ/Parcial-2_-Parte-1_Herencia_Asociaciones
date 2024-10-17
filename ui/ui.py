@@ -1,11 +1,12 @@
 from modelo.cliente import Cliente
+from modelo.factura import Factura
 
 class UI:
     def __init__(self):
+        # Si hay tiempo, cambiar la lista de clientes por un diccionario
         self.clientes = []
         self.productos = []
 
-    # Debemos que colocar bien este metodo
     def buscar_cliente(self):
         dni = input("Ingrese el DNI del cliente: ")
         for cliente in self.clientes:
@@ -32,20 +33,16 @@ class UI:
 
     def agregar_cliente(self):
         nombre = input("Ingrese el nombre del cliente: ")
-        direccion = input("Ingrese la dirección del cliente: ")
-        telefono = input("Ingrese el teléfono del cliente: ")
+        dni = input("Ingrese el DNI del cliente: ")
         
-        nuevo_cliente = Cliente(nombre, direccion, telefono)
+        nuevo_cliente = Cliente(nombre, dni)
         self.clientes.append(nuevo_cliente)
         
         print(f"Cliente {nombre} agregado exitosamente.")
 
     def agregar_producto(self):
-        cliente_encontrado = self.buscar_cliente()
-
-        if cliente_encontrado:
-            #metodo para insertar productos
-            pass
+        # implementar metodo
+        pass
 
     def eliminar_cliente(self):
         cliente_encontrado = self.buscar_cliente()
@@ -55,7 +52,8 @@ class UI:
 
     def modificar_cliente(self):
         cliente_encontrado = self.buscar_cliente()
-
+        if cliente_encontrado:
+            nuevo_nombre = input("Ingrese el nombre")
         pass
 
     def modificar_producto(self):
@@ -83,7 +81,9 @@ class UI:
         cliente_encontrado = self.buscar_cliente()
 
         if cliente_encontrado:
-            #metodo para agregar la factura al cliente
+            nueva_factura = Factura()
+            nueva_factura.crear_factura()
+            cliente_encontrado.agregar_factura(nueva_factura)
             pass
 
     def opciones(self):

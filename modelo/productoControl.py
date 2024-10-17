@@ -39,23 +39,23 @@ class ProductoControl:
     def valor(self, valor):
         self.__valor = valor
 
-    def insertarProducto(self, producto):
+    def insertar_producto(self, producto):
         self.productos.append(producto)
 
-    def buscarProductoNombre(self, nombre_producto: str):
+    def buscar_productoNombre(self, nombre_producto: str):
         for producto in self.productos:
             if producto.nombre_producto == nombre_producto:
                 return producto
         return None
 
-    def buscarProductoRegistro(self, registro_ica: str):
+    def buscar_producto_registro(self, registro_ica: str):
         for producto in self.productos:
             if producto.registro_ica == registro_ica:
                 return producto
         return None
 
-    def actualizarProducto(self, registro_ica: str, nombre_producto: str, frecuencia_aplicacion: int, valor: float, cantidad: int):
-        producto = self.buscarProductoRegistro(registro_ica)
+    def actualizar_producto(self, registro_ica: str, nombre_producto: str, frecuencia_aplicacion: int, valor: float, cantidad: int):
+        producto = self.buscar_producto_registro(registro_ica)
         if producto:
             producto.nombre_producto = nombre_producto
             producto.frecuencia_aplicacion = frecuencia_aplicacion
@@ -63,3 +63,6 @@ class ProductoControl:
             producto.cantidad = cantidad
             return True
         return False
+    
+    def nuevo_producto():
+        pass

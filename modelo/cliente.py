@@ -1,5 +1,5 @@
 class Cliente:
-    def __init__(self, nombre: str, dni: str):
+    def __init__(self, nombre, dni):
         self.__nombre = nombre
         self.__dni = dni
         self.__factura= []
