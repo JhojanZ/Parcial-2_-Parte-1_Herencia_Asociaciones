@@ -16,6 +16,8 @@ class UI:
         return None
 
     def mostrar_menu(self):
+        # falta arreglar los numeros 
+        # (eliminar si se arreglo)
         print("1. Agregar clientes")
         print("2. Agregar productos")
         print("3. Eliminar clientes")
@@ -24,7 +26,8 @@ class UI:
         print("6. Mostrar cantidad de algún producto")
         print("7. Mostrar lista de clientes")
         print("8. Mostrar la factura de algún cliente")
-        print("9. Salir")
+        print("9. Mostrar la factura de algún cliente")
+        print("10. Salir")
         
 
     def agregar_cliente(self):
@@ -70,11 +73,18 @@ class UI:
             for cliente in self.clientes:
                 print(f"Nombre: {cliente.nombre}, DNI: {cliente.dni}, Factura: {cliente.telefono}")
 
-    def mostrar_factura_cliente(self):
+    def mostrar_factura_cliente(self):  
         cliente_encontrado = self.buscar_cliente()
         
         if cliente_encontrado:
             cliente_encontrado.mostrar_facturas()
+
+    def crear_factura(self):
+        cliente_encontrado = self.buscar_cliente()
+
+        if cliente_encontrado:
+            #metodo para agregar la factura al cliente
+            pass
 
     def opciones(self):
         while True:
@@ -98,6 +108,8 @@ class UI:
             elif opcion == '8':
                 self.mostrar_factura_cliente()
             elif opcion == '9':
+                self.crear_factura()
+            elif opcion == '10':
                 print("Saliendo...")
                 break
             else:
