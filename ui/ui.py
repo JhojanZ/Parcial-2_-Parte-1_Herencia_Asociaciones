@@ -5,6 +5,16 @@ class UI:
         self.clientes = []
         self.productos = []
 
+    # Debemos que colocar bien este metodo
+    def buscar_cliente(self):
+        dni = input("Ingrese el DNI del cliente: ")
+        for cliente in self.clientes:
+            if cliente.dni == dni:
+                return cliente
+        
+        print(f"No se encontró un cliente con el DNI {dni}.")
+        return None
+
     def mostrar_menu(self):
         print("1. Agregar clientes")
         print("2. Agregar productos")
@@ -15,6 +25,7 @@ class UI:
         print("7. Mostrar lista de clientes")
         print("8. Mostrar la factura de algún cliente")
         print("9. Salir")
+        
 
     def agregar_cliente(self):
         nombre = input("Ingrese el nombre del cliente: ")
@@ -27,15 +38,21 @@ class UI:
         print(f"Cliente {nombre} agregado exitosamente.")
 
     def agregar_producto(self):
-        
-        pass
+        cliente_encontrado = self.buscar_cliente()
+
+        if cliente_encontrado:
+            #metodo para insertar productos
+            pass
 
     def eliminar_cliente(self):
-        # Implementar lógica para eliminar cliente
-        pass
+        cliente_encontrado = self.buscar_cliente()
+
+        if cliente_encontrado:
+            self.clientes.remove(cliente_encontrado)
 
     def modificar_cliente(self):
-        # Implementar lógica para modificar cliente
+        cliente_encontrado = self.buscar_cliente()
+
         pass
 
     def modificar_producto(self):
@@ -43,8 +60,8 @@ class UI:
         pass
 
     def mostrar_cantidad_producto(self):
-        # Implementar lógica para mostrar cantidad de producto
-        pass
+        dni = input("Ingrese el DNI del cliente: ")
+
 
     def mostrar_lista_clientes(self):
         if not self.clientes:
@@ -53,23 +70,11 @@ class UI:
             for cliente in self.clientes:
                 print(f"Nombre: {cliente.nombre}, DNI: {cliente.dni}, Factura: {cliente.telefono}")
 
-
-    # Debemos que colocar bien este metodo
-    def buscar_cliente(self, dni):
-        for cliente in self.clientes:
-            if cliente.dni == dni:
-                return cliente
-        return None
-
     def mostrar_factura_cliente(self):
-        cliente_dni = input("Ingrese el DNI del cliente: ")
-        cliente_encontrado = self.buscar_cliente(cliente_dni)
+        cliente_encontrado = self.buscar_cliente()
         
         if cliente_encontrado:
             cliente_encontrado.mostrar_facturas()
-        else:
-            print(f"No se encontró un cliente con el DNI {cliente_dni}.")
-        pass
 
     def opciones(self):
         while True:
