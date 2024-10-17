@@ -24,26 +24,17 @@ class Cliente:
     def factura(self):
         return self.__factura
     
-    @nombre.setter
-    def agregar_factura(self, factura):
+    @factura.setter
+    def factura(self, factura):
         self.__factura.append(factura)
 
-    def mostrar_todas_facturas(self):
-        if not self.__factura:
-            print("No hay facturas disponibles.")
-            return
+    def agregar_factura(self, factura):
+        self.__facturas.append(factura)
 
-        for factura in self.factura:
-            factura.mostrar_factura()
+    def mostrar_facturas(self):
+        if not self.__facturas:
+            print("No hay facturas del Cliente", self.__nombre)
+        else: 
+            for facturas in self.__factura:
+                print(facturas)
 
-    def actualiza_datos(self, nombre, dni):
-        if nombre:
-            self.nombre = nombre
-        if dni:
-            self.dni = dni
-
-    def nuevo_cliente(self, nombre, dni):
-        return Cliente(nombre, dni)
-    
-    def agregar_pedido(self, factura):
-        self.pedidos.append(factura) 
