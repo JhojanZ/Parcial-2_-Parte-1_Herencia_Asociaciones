@@ -47,7 +47,7 @@ class Factura:
         self.antibiotico = antibiotico
         
 
-    def crearFactura(self):
+    def crear_factura(self):
         factura = {
             'cliente': self.cliente,
             'nombre': self.nombre,
@@ -58,9 +58,20 @@ class Factura:
         self.historial.append(factura)
         return factura
 
-    def mostrarHistorial(self):
+    def mostrar_historial(self):
         for factura in self.historial:
             print(factura)
 
-    def cantidadProductos(self):
+    def mostrar_factura(self):
+        print("Fecha:", self.fecha)
+        print("Valor Total de la compra:", self.valor_total_compra)
+        print(f"Cantidad de productos: {self.cantidad_productos()}")
+        print("Productos de control:")
+        for producto in self.producto_control:
+            print(producto)
+        print("Antibióticos:")
+        for antibiotico in self.antibiotico:
+            print(antibiotico)
+
+    def cantidad_productos(self):
         return len(self.listaProducto)
