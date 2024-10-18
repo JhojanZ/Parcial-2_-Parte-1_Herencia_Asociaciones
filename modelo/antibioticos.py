@@ -1,7 +1,7 @@
 from modelo.factura import Factura
 
 class Antibiotico:
-    def __init__(self, id_factura: int, nombre_antibiotico: str, dosis: float, tipo_animal: str, precio: float, cantidad: int):
+    def __init__(self, nombre_antibiotico: str, dosis: float, tipo_animal: str, precio: float, cantidad: int):
         self.__nombre_antibiotico = nombre_antibiotico
         self.__dosis = dosis
         self.__tipo_animal = tipo_animal
