@@ -1,17 +1,16 @@
-from modelo.factura import Factura
 
 class Antibiotico:
-    def __init__(self, nombre_antibiotico: str, dosis: float, tipo_animal: str, precio: float, cantidad: int):
+    def __init__(self, nombre_antibiotico, dosis, tipo_animal, valor, cantidad):
         self.__nombre_antibiotico = nombre_antibiotico
         self.__dosis = dosis
         self.__tipo_animal = tipo_animal
-        self.__precio = precio
+        self.__valor = valor
         self.__cantidad = cantidad
 
     @property
     def nombre_antibiotico(self):
         return self.__nombre_antibiotico
-    
+
     @nombre_antibiotico.setter
     def nombre_antibiotico(self, nombre_antibiotico):
         self.__nombre_antibiotico = nombre_antibiotico
@@ -34,11 +33,11 @@ class Antibiotico:
 
     @property
     def precio(self):
-        return self.__precio
+        return self.__valor
     
     @precio.setter
     def precio(self, precio):
-        self.__precio = precio
+        self.__valor = precio
     
     @property
     def cantidad(self):

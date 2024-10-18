@@ -1,7 +1,7 @@
-from modelo.factura import Factura
+
 
 class ProductoControl:
-    def __init__(self, registro_ica: str, nombre_producto: str, frecuencia_aplicacion: int, valor: float, cantidad: int):
+    def __init__(self, registro_ica, nombre_producto, frecuencia_aplicacion, valor, cantidad):
         self.__registro_ica = registro_ica
         self.__nombre_producto = nombre_producto
         self.__frecuencia_aplicacion = frecuencia_aplicacion

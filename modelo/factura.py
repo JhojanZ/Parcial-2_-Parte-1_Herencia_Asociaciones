@@ -42,6 +42,7 @@ class Factura:
         if producto_control != None:
             self.asociar_producto_control(producto_control)
             self.__valor_total_compra = producto_control.valor * cantidad
+            
         if antibiotico != None:
             self.asociar_antibiotico(antibiotico)
             self.__valor_total_compra = antibiotico.valor * cantidad

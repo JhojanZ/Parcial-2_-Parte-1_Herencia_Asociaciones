@@ -2,7 +2,7 @@ class Cliente:
     def __init__(self, nombre, dni):
         self.__nombre = nombre
         self.__dni = dni
-        self.__factura= []
+        self.__facturas = []
 
     @property
     def nombre(self):
@@ -22,19 +22,19 @@ class Cliente:
 
     @property
     def factura(self):
-        return self.__factura
+        return self.__facturas 
     
     @factura.setter
     def factura(self, factura):
-        self.__factura.append(factura)
+        self.__facturas .append(factura)
 
     def agregar_factura(self, factura):
-        self.__facturas.append(factura)
+        self.__facturas .append(factura)
 
     def mostrar_facturas(self):
-        if not self.__facturas:
+        if not self.__facturas :
             print("No hay facturas del Cliente", self.__nombre)
         else: 
-            for facturas in self.__factura:
+            for facturas in self.__facturas :
                 print(facturas)
 
