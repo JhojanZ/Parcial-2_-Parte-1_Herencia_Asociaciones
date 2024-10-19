@@ -59,17 +59,15 @@ class TestFactura(unittest.TestCase):
     def test_nuevo_valor(self):
         nuevo_valor = 40
         self.fact.fecha = nuevo_valor
-        self.assertEqual(self.fact.fecha, nuevo_valor, "La fecha no se actualizó correctamente.")
+        self.assertEqual(self.fact.fecha, nuevo_valor, "El valor no se actualizó correctamente.")
 
     def test_actualizar_valor_producto(self):
         nuevo_valor = 20000
         self.fact.realizar_venta(self.produc_fertilizante)
         self.assertEqual(self.fact.valor_total_compra, nuevo_valor, "El valor total no es correcto para el fertilizante.")
         
-    '''
     #Este caso esta fallando
     def test_actualizar_valor_antibiotico(self):
         nuevo_valor = 20000
         self.fact.realizar_venta(antibiotico=self.antibio_1)
         self.assertEqual(self.fact.valor_total_compra, nuevo_valor, "El valor total no es correcto después de agregar un antibiótico.")
-    '''

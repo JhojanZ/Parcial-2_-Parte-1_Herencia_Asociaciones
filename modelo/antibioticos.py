@@ -21,7 +21,10 @@ class Antibiotico:
     
     @dosis.setter
     def dosis(self, dosis):
-        self.__dosis = dosis
+        if 400 <= dosis <= 600:
+            self.__dosis = dosis
+        else:
+            print("La dosis debe estar entre 400Kg y 600Kg")
 
     @property
     def tipo_animal(self):
@@ -29,7 +32,10 @@ class Antibiotico:
     
     @tipo_animal.setter
     def tipo_animal(self, tipo_animal):
-        self.__tipo_animal = tipo_animal
+        if tipo_animal in ['Bovino', 'Caprino','Porcino']:
+            self.__tipo_animal = tipo_animal
+        else:
+            print("El tipo de animal debe ser Bovino, Caprino o Porcino")
 
     @property
     def precio(self):
