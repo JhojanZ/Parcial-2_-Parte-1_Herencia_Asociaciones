@@ -7,7 +7,23 @@ class UI:
         self.clientes = []
         self.productos = []
 
-    def buscar_cliente(self):
+    def mostrar_menu(self):
+        # falta arreglar los numeros 
+        # (eliminar si se arreglo)
+        print("1. Agregar clientes")
+        print("2. |Agregar productos")
+        print("3. Eliminar clientes")
+        print("4. Modificar clientes")
+        print("5. |Modificar productos")
+        print("6. Mostrar cantidad de algún producto")
+        print("7. Mostrar lista de clientes")
+        print("8. Mostrar la factura de algún cliente")
+        print("9. Mostrar la factura de algún cliente")
+        print("10. Buscar por cedula")
+        
+        print("11. Salir")
+        
+    def buscar_por_cedula(self):
         dni = input("Ingrese el DNI del cliente: ")
         for cliente in self.clientes:
             if cliente.dni == dni:
@@ -15,21 +31,6 @@ class UI:
         
         print(f"No se encontró un cliente con el DNI {dni}.")
         return None
-
-    def mostrar_menu(self):
-        # falta arreglar los numeros 
-        # (eliminar si se arreglo)
-        print("1. Agregar clientes")
-        print("2. Agregar productos")
-        print("3. Eliminar clientes")
-        print("4. Modificar clientes")
-        print("5. Modificar productos")
-        print("6. Mostrar cantidad de algún producto")
-        print("7. Mostrar lista de clientes")
-        print("8. Mostrar la factura de algún cliente")
-        print("9. Mostrar la factura de algún cliente")
-        print("10. Salir")
-        
 
     def agregar_cliente(self):
         nombre = input("Ingrese el nombre del cliente: ")
@@ -45,13 +46,13 @@ class UI:
         pass
 
     def eliminar_cliente(self):
-        cliente_encontrado = self.buscar_cliente()
+        cliente_encontrado = self.buscar_por_cedula()
 
         if cliente_encontrado:
             self.clientes.remove(cliente_encontrado)
 
     def modificar_cliente(self):
-        cliente_encontrado = self.buscar_cliente()
+        cliente_encontrado = self.buscar_por_cedula()
         if cliente_encontrado:
             nuevo_nombre = input("Ingrese el nombre")
         pass
@@ -72,13 +73,13 @@ class UI:
                 print(f"Nombre: {cliente.nombre}, DNI: {cliente.dni}, Factura: {cliente.telefono}")
 
     def mostrar_factura_cliente(self):  
-        cliente_encontrado = self.buscar_cliente()
+        cliente_encontrado = self.buscar_por_cedula()
         
         if cliente_encontrado:
             cliente_encontrado.mostrar_facturas()
 
     def crear_factura(self):
-        cliente_encontrado = self.buscar_cliente()
+        cliente_encontrado = self.buscar_por_cedula()
 
         if cliente_encontrado:
             nueva_factura = Factura()
@@ -110,6 +111,8 @@ class UI:
             elif opcion == '9':
                 self.crear_factura()
             elif opcion == '10':
+                self.buscar_por_cedula()
+            elif opcion == '11':
                 print("Saliendo...")
                 break
             else:
