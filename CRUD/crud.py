@@ -1,7 +1,6 @@
 from modelo.cliente import Cliente
 from modelo.productoControl import ProductoControl
 
-
 class ClienteCrud:
     def __init__(self):
         self.clientes = {}
