@@ -3,7 +3,7 @@ from modelo.productoControl import ProductoControl
 
 class ClienteCrud:
     def __init__(self):
-        self.clientes = {}
+        self.clientes = []
 
     def crear_cliente(self, nombre, dni):
         if dni in self.clientes:
@@ -17,7 +17,7 @@ class ClienteCrud:
             print("No hay clientes registrados.")
         else:
             for cliente in self.clientes.values():
-                print(f"Cliente: {cliente.nombre}, DNI: {cliente.dni}")
+                return cliente
 
     def actualizar_cliente(self, dni, nombre=None):
         if dni not in self.clientes:
@@ -31,6 +31,16 @@ class ClienteCrud:
             raise ValueError(f"Cliente con DNI {dni} no encontrado.")
         del self.clientes[dni]
         print(f"Cliente con DNI {dni} eliminado correctamente.")
+
+    def buscar_por_cedula(self, dni):
+        cliente = next((c for c in self.clientes if c.dni == dni), None)
+        
+        if cliente is None:
+            print(f"No se encontró un cliente con cédula: {dni}")
+            return
+
+        print(f"Facturas para el cliente {cliente.nombre} con DNI {dni}:\n")
+        cliente.mostrar_facturas()
 
 
 class ProductoControlCrud:
@@ -49,7 +59,7 @@ class ProductoControlCrud:
             print("No hay productos registrados.")
         else:
             for producto in self.productos.values():
-                print(f"Producto: {producto.nombre_producto}, Registro ICA: {producto.registro_ica}")
+                return producto
 
     def actualizar_producto(self, registro_ica, nombre_producto=None, valor=None, cantidad=None):
         if registro_ica not in self.productos:
