@@ -56,7 +56,7 @@ class TestCliente(unittest.TestCase):
         self.cliente.agregar_factura(self.factura1)
         self.assertIn(self.factura1, self.cliente.factura, "La factura no se agregó correctamente.")
 
-    ## falta los test de mostrar factura, los casos de que tenga y no
+
  
 
 if __name__ == '__main__':
