@@ -2,7 +2,7 @@ from modelo.cliente import Cliente
 from modelo.productoControl import ProductoControl
 
 class ClienteCrud:
-    def __init__(self, producto_crud):
+    def __init__(self):
         self.clientes = {}
 
     def crear_cliente(self, nombre, dni):
