@@ -2,8 +2,8 @@ from modelo.cliente import Cliente
 from modelo.productoControl import ProductoControl
 
 class ClienteCrud:
-    def __init__(self):
-        self.clientes = []
+    def __init__(self, producto_crud):
+        self.clientes = {}
 
     def crear_cliente(self, nombre, dni):
         if dni in self.clientes:
@@ -78,60 +78,3 @@ class ProductoControlCrud:
             raise ValueError(f"Producto con registro ICA {registro_ica} no encontrado.")
         del self.productos[registro_ica]
         print(f"Producto con registro ICA {registro_ica} eliminado correctamente.")
-
-
-class CrudManager:
-    def __init__(self):
-        self.cliente_crud = ClienteCrud()
-        self.producto_crud = ProductoControlCrud()
-
-    def crear_cliente(self, nombre, dni):
-        self.cliente_crud.crear_cliente(nombre, dni)
-
-    def leer_clientes(self):
-        self.cliente_crud.leer_clientes()
-
-    def actualizar_cliente(self, dni, nombre=None):
-        self.cliente_crud.actualizar_cliente(dni, nombre)
-
-    def eliminar_cliente(self, dni):
-        self.cliente_crud.eliminar_cliente(dni)
-
-    def crear_producto(self, registro_ica, nombre_producto, frecuencia_aplicacion, valor, cantidad):
-        self.producto_crud.crear_producto(registro_ica, nombre_producto, frecuencia_aplicacion, valor, cantidad)
-
-    def leer_productos(self):
-        self.producto_crud.leer_productos()
-
-    def actualizar_producto(self, registro_ica, nombre_producto=None, valor=None, cantidad=None):
-        self.producto_crud.actualizar_producto(registro_ica, nombre_producto, valor, cantidad)
-
-    def eliminar_producto(self, registro_ica):
-        self.producto_crud.eliminar_producto(registro_ica)
-
-
-if __name__ == "__main__":
-    manager = CrudManager()
-
-    # Pruebas con Cliente
-    nombre_cliente = "Juan Perez"
-    dni = "12345678"
-    manager.crear_cliente(nombre_cliente, dni)
-    manager.leer_clientes()
-    manager.actualizar_cliente(dni, nombre="Juan P.")
-    manager.leer_clientes()
-    manager.eliminar_cliente(dni)
-    manager.leer_clientes()
-    
-
-    print()
-
-    # Pruebas con ProductoControl
-    id = "001"
-    producto = "Insecticida"
-    manager.crear_producto(id, producto, "Semanal", 1500, 10)
-    manager.leer_productos()
-    manager.actualizar_producto(id, nombre_producto="Insecticida Plus", valor=1600)
-    manager.leer_productos()
-    manager.eliminar_producto(id)
-    manager.leer_productos()
