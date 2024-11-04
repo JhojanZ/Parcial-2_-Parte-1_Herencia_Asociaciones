@@ -1,5 +1,3 @@
-
-
 class ProductoControl:
     def __init__(self, registro_ica, nombre_producto, frecuencia_aplicacion, valor, cantidad):
         self.__registro_ica = registro_ica
