@@ -4,8 +4,6 @@ from CRUD.crud import ClienteCrud, ProductoControlCrud
 
 class UI:
     def __init__(self):
-        self.clientes = []
-        self.productos = []
         self.clientes_crud = ClienteCrud()
         self.productos_crud = ProductoControlCrud()
 
@@ -14,9 +12,7 @@ class UI:
         print("1. Agregar clientes")
         print("2. Agregar productos")
         print("3. Crear factura")
-        # falta corregir el 4
         print("4. Eliminar clientes")
-        # falta corregir el 5
         print("5. Modificar clientes")
         print("6. Modificar productos")
         print("7. Mostrar lista de clientes")
@@ -26,9 +22,13 @@ class UI:
         print("10. Salir")
         
     def buscar_por_cedula(self):
-        dni = input("Ingrese el DNI del cliente: ")
+        dni = int(input("Ingrese el DNI del cliente: "))
         cliente = self.clientes_crud.buscar_por_cedula(dni)  
-        return cliente
+        if cliente:
+            return cliente
+        else:
+            print(f"No se encontró un cliente con cédula: {dni}")
+            return None
 
     def agregar_cliente(self):
         nombre = input("Ingrese el nombre del cliente: ")
@@ -43,18 +43,18 @@ class UI:
         cantidad = int(input("Ingrese la cantidad disponible: "))
         self.productos_crud.crear_producto(registro_ica, nombre_producto, frecuencia_aplicacion, valor, cantidad)
 
-    def pedir_factura(self, nueva_factura):
+    def pedir_factura(self):
         fecha = input("Ingrese la fecha: ")
         valor = input("Ingrese el valor de la compra: ")
 
-        cantidad_productos = input("Ingrese la cantidad de productos: ")
+        cantidad_productos = int(input("Ingrese la cantidad de productos: "))
         print("Ingrese los productos")
         productos = []
         for i in range(cantidad_productos):
             producto = input()
             productos.append(producto)
 
-        cantidad_antibioticos = input("Ingrese la cantidad de antibioticos: ")
+        cantidad_antibioticos = int(input("Ingrese la cantidad de antibioticos: "))
         print("Ingrese los productos")
         antibioticos = []
         for i in range(cantidad_antibioticos):
@@ -91,7 +91,12 @@ class UI:
         self.productos_crud.actualizar_producto(registro_ica, nuevo_nombre, nuevo_valor, nueva_cantidad)
 
     def mostrar_factura_cliente(self):
-        cliente = self.clientes_crud.buscar_por_cedula()
+        cliente = self.buscar_por_cedula()
+
+        if cliente:
+            cliente.mostrar_facturas() 
+        else:
+            print("Cliente no encontrado.")
 
 
     def mostrar_lista_clientes(self):
@@ -135,4 +140,5 @@ class UI:
                 print("Opción no válida, intente de nuevo.")
 
 if __name__ == "__main__":
-    main()
+    interfaz = UI() 
+    interfaz.opciones()
