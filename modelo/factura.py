@@ -2,11 +2,11 @@ from modelo.productoControl import ProductoControl
 from modelo.antibioticos import Antibiotico
 
 class Factura:
-    def __init__(self, fecha, valor_total_compra):
+    def __init__(self, fecha, valor_total_compra, productos=[], antibioticos=[]):
         self.__fecha = fecha
         self.__valor_total_compra = valor_total_compra
-        self.__producto_control = []
-        self.__antibiotico = []
+        self.__producto_control = productos
+        self.__antibiotico = antibioticos
     
     @property
     def fecha(self):
@@ -31,7 +31,7 @@ class Factura:
     @property
     def antibiotico(self):
         return self.__antibiotico
-
+    
     def asociar_producto_control(self, producto_control):
         self.__producto_control.append(producto_control)
 

@@ -15,9 +15,12 @@ class ClienteCrud:
     def leer_clientes(self):
         if not self.clientes:
             print("No hay clientes registrados.")
-        else:
-            for cliente in self.clientes.values():
-                return cliente
+            return None
+
+        clientes = []
+        for cliente in self.clientes.values():
+            clientes.append(cliente)
+        return clientes
 
     def actualizar_cliente(self, dni, nombre=None):
         if dni not in self.clientes:
@@ -41,6 +44,20 @@ class ClienteCrud:
 
         print(f"Facturas para el cliente {cliente.nombre} con DNI {dni}:\n")
         cliente.mostrar_facturas()
+
+    def mostrar_facturas(self, cliente):
+        if not cliente.facturas:
+            print("El cliente no tiene facturas.")
+            return
+
+        for factura in cliente.facturas:
+            print(f"Factura ID: {factura.id}")
+            print(f"Fecha: {factura.fecha}")
+            print(f"Total: {factura.total}")
+            print("Productos:")
+            for producto in factura.productos:
+                print(f"  - {producto.nombre_producto}: {producto.cantidad} unidades a {producto.valor} cada una")
+                print("\n")
 
 
 class ProductoControlCrud:
