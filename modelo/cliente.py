@@ -32,9 +32,11 @@ class Cliente:
         self.__facturas .append(factura)
 
     def mostrar_facturas(self):
-        if not self.__facturas :
+        if not self.__facturas:
             print("No hay facturas del Cliente", self.__nombre)
         else: 
-            for facturas in self.__facturas :
-                print(facturas)
+            for factura in self.__facturas:
+                print("Factura:")
+                print(f"  Fecha: {factura.fecha}")
+                print(f"  Total: {factura.valor_total_compra}")
 
