@@ -14,7 +14,6 @@ class ClienteCrud:
 
     def leer_clientes(self):
         if not self.clientes:
-            print("No hay clientes registrados.")
             return None
 
         clientes = []
