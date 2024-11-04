@@ -11,6 +11,7 @@ class ClienteCrud:
         cliente = Cliente(nombre, dni)
         self.clientes[dni] = cliente
         print(f"Cliente {nombre} creado correctamente.")
+        print("Clientes actualmente en el sistema:", self.clientes)  # Verificación
 
     def leer_clientes(self):
         if not self.clientes:
@@ -35,14 +36,11 @@ class ClienteCrud:
         print(f"Cliente con DNI {dni} eliminado correctamente.")
 
     def buscar_por_cedula(self, dni):
-        cliente = next((c for c in self.clientes if c.dni == dni), None)
-        
+        cliente = self.clientes.get(dni)
+    
         if cliente is None:
             print(f"No se encontró un cliente con cédula: {dni}")
-            return
-
-        print(f"Facturas para el cliente {cliente.nombre} con DNI {dni}:\n")
-        cliente.mostrar_facturas()
+        return cliente 
 
     def mostrar_facturas(self, cliente):
         if not cliente.facturas:
@@ -79,7 +77,7 @@ class ProductoControlCrud:
 
     def actualizar_producto(self, registro_ica, nombre_producto=None, valor=None, cantidad=None):
         if registro_ica not in self.productos:
-            raise ValueError(f"Producto con registro ICA {registro_ica} no encontrado.")
+            print(f"Producto con registro ICA {registro_ica} no encontrado.")
         producto = self.productos[registro_ica]
         if nombre_producto:
             producto.nombre_producto = nombre_producto
@@ -91,6 +89,6 @@ class ProductoControlCrud:
 
     def eliminar_producto(self, registro_ica):
         if registro_ica not in self.productos:
-            raise ValueError(f"Producto con registro ICA {registro_ica} no encontrado.")
+            print(f"Producto con registro ICA {registro_ica} no encontrado.")
         del self.productos[registro_ica]
         print(f"Producto con registro ICA {registro_ica} eliminado correctamente.")
