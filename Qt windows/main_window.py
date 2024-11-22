@@ -10,7 +10,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setupUi(self)
 
     def setupUi(self, MainWindow):
-        # Setup UI components and signals here
+        
         pass
 
     def openAgregarProductoWindow(self):
