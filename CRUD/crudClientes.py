@@ -30,6 +30,7 @@ class ClienteCrud:
         print(f"Cliente con DNI {dni} actualizado correctamente.")
 
     def eliminar_cliente(self, dni):
+        print(self.clientes)  # Verificación
         if dni not in self.clientes:
             raise ValueError(f"Cliente con DNI {dni} no encontrado.")
         del self.clientes[dni]
