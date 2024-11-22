@@ -36,6 +36,7 @@ class VentanaBuscarProducto(QtWidgets.QMainWindow):
                 'registro_ica': registro_ica,
                 'frecuencia_aplicacion': frecuencia_aplicacion,
                 'valor_producto': valor_producto,
-                'cantidad': cantidad
+                'cantidad': cantidad,
+                'accion': self.accion
             })
             QtWidgets.QMessageBox.information(self, 'Éxito', 'Datos guardados exitosamente.')

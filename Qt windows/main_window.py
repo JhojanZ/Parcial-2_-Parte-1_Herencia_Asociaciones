@@ -2,9 +2,8 @@ from PyQt5 import QtWidgets, uic
 import os
 import sys
 
-from interfaz.ventana_agregar_producto import VentanaAgregarProducto
-from interfaz.ventana_modificar_producto import VentanaModificarProductos
 from interfaz.ventana_buscar_producto import VentanaBuscarProducto
+from interfaz.ventana_buscar_cliente import VentanaBuscarCliente
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -19,7 +18,23 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pushButton_modificar_producto.clicked.connect(self.pushButtonModificarProducto)
         self.pushButton_eliminar_producto.clicked.connect(self.pushButtonEliminarProducto)
 
+        self.pushButton_agregar_cliente.clicked.connect(self.pushAgregarCliente)
+        self.pushButton_modificar_cliente.clicked.connect(self.pushModificarCliente)
+        self.pushButton_eliminar_cliente.clicked.connect(self.pushEliminarCliente)
+
+
     # Clientes
+    def pushAgregarCliente(self):
+        self.ventana_buscar_cliente = VentanaBuscarCliente("Agregar cliente")
+        self.ventana_buscar_cliente.show()
+
+    def pushModificarCliente(self):
+        self.ventana_buscar_cliente = VentanaBuscarCliente("Modificar cliente")
+        self.ventana_buscar_cliente.show()
+
+    def pushEliminarCliente(self): 
+        self.ventana_buscar_cliente = VentanaBuscarCliente("Eliminar cliente")
+        self.ventana_buscar_cliente.show()
 
     # Productos
     def openAgregarProductoWindow(self):
