@@ -21,11 +21,11 @@ class VentanaBuscarCliente(QtWidgets.QMainWindow):
 
         nombre = self.findChild(QtWidgets.QPlainTextEdit, 'plainTextEdit_nombre').toPlainText()
         dni = self.findChild(QtWidgets.QPlainTextEdit, 'plainTextEdit_dni').toPlainText()
-        print(self.accion, "paso linea")
 
         if not all([nombre, dni]):
             QtWidgets.QMessageBox.warning(self, 'Alerta', 'Por favor, complete todos los campos.')
         else:
+            
             if self.accion == "Agregar cliente":
                 if self.controller.agregar_cliente(nombre, dni):
                     QtWidgets.QMessageBox.information(self, 'Éxito', 'Cliente agregado exitosamente.')
