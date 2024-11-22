@@ -33,7 +33,7 @@ class ControladorVentanas:
         self.ventana_buscar_cliente.show()
 
     def abrir_ventana_buscar_producto(self, accion):
-        self.ventana_buscar_producto = VentanaBuscarProducto(accion)
+        self.ventana_buscar_producto = VentanaBuscarProducto(accion, self.controlador_productos)
         self.ventana_buscar_producto.show()
 
     # Buscar id
@@ -52,6 +52,7 @@ class ControladorVentanas:
         if(tipo == "clientes"):
             return self.convertir_lista_objetos_a_lista_diccionarios(self.controlador_cliente.obtener_clientes())
         elif(tipo == "productos"):
+            print(self.controlador_productos.obtener_productos())
             return self.convertir_lista_objetos_a_lista_diccionarios(self.controlador_productos.obtener_productos())
         elif(tipo == "facturas"):
             #return self.convertir_lista_objetos_a_lista_diccionarios(self.controlador_factura.obtener_facturas())

@@ -4,12 +4,21 @@ class ProductoControlCrud:
     def __init__(self):
         self.productos = {}
 
-    def crear_producto(self, registro_ica, nombre_producto, frecuencia_aplicacion, valor, cantidad):
+    def crear_producto(self, **datos):
+        registro_ica = datos.get('registro_ica')
+        nombre_producto = datos.get('nombre_producto')
+        frecuencia_aplicacion = datos.get('frecuencia_aplicacion')
+        valor = datos.get('valor')
+        cantidad = datos.get('cantidad')
+
         if registro_ica in self.productos:
             raise ValueError(f"Producto con registro ICA {registro_ica} ya existe.")
+
         producto = ProductoControl(registro_ica, nombre_producto, frecuencia_aplicacion, valor, cantidad)
         self.productos[registro_ica] = producto
         print(f"Producto {nombre_producto} creado correctamente.")
+        print(f"Estado actual de productos: {self.productos}")
+
 
     def leer_productos(self):
         if not self.productos:

@@ -6,11 +6,11 @@ from controladores.controlador_productos import ControladorProductos
 
 
 class VentanaBuscarProducto(QtWidgets.QMainWindow):
-    def __init__(self, accion):
+    def __init__(self, accion, controlador_producto):
         super(VentanaBuscarProducto, self).__init__()
         ui_path = os.path.join(os.path.dirname(__file__), 'ventana_agregar_producto.ui')
         uic.loadUi(ui_path, self)
-        self.controlador_producto = ControladorProductos()
+        self.controlador_producto = controlador_producto
         self.pushButton_enviar.clicked.connect(self.enviar_datos)
         self.datos_producto = []
         self.accion = accion

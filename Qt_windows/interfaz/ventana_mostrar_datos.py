@@ -6,7 +6,7 @@ import os
 
 
 class VentanaMostrarDatos(QMainWindow):
-    def __init__(self, encabezado=[], clientes=[]):
+    def __init__(self, encabezado=[], datos=[]):
         super().__init__()
         ui_path = os.path.join(os.path.dirname(__file__), "ventana_mostrar_datos.ui")
         uic.loadUi(ui_path, self)
@@ -14,14 +14,14 @@ class VentanaMostrarDatos(QMainWindow):
         self.model = QStandardItemModel()
         self.model.setHorizontalHeaderLabels(encabezado)  # Encabezados
         print(encabezado)
-        print(clientes)
+        print(datos)
 
-        for cliente in clientes:
+        for dato in datos:
             row = []
             for head in encabezado:
-                if(type(cliente[head]) != list):
-                    print(cliente[head])
-                    item = QStandardItem(cliente[head])
+                if(type(dato[head]) != list):
+                    print(dato[head])
+                    item = QStandardItem(str(dato[head]))
                     item.setEditable(False)
                     row.append(item)
             self.model.appendRow(row)

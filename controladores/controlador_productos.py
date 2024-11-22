@@ -6,7 +6,7 @@ class ControladorProductos:
 
     def agregar_producto(self, **kwargs):
         try:
-            self.producto_crud.crear_producto(kwargs)
+            self.producto_crud.crear_producto(**kwargs)
             return True  
         except ValueError as e:
             print(e)
@@ -15,9 +15,9 @@ class ControladorProductos:
     def obtener_productos(self):
         return self.producto_crud.leer_productos()
 
-    def actualizar_producto(self, **kwargs):
+    def actualizar_producto(self, registro_ica, nombre_producto, frecuencia_aplicacion, valor, cantidad):
         try:
-            self.producto_crud.actualizar_producto(kwargs)
+            self.producto_crud.actualizar_producto(registro_ica, nombre_producto, frecuencia_aplicacion, valor, cantidad)
             return True
         except ValueError as e:
             print(e)
