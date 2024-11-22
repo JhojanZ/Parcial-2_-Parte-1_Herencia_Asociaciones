@@ -2,6 +2,9 @@ from PyQt5 import QtWidgets, uic
 import os
 import sys
 
+from interfaz.ventana_agregar_producto import VentanaAgregarProducto
+
+
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -10,10 +13,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setupUi(self)
 
     def setupUi(self, MainWindow):
-        
-        pass
+        self.pushButton_agregar_productos.clicked.connect(self.openAgregarProductoWindow)
 
     def openAgregarProductoWindow(self):
+        print("Agregar producto")     
+        self.ventana_agregar_producto = VentanaAgregarProducto()
         self.ventana_agregar_producto.show()
 
 if __name__ == "__main__":
