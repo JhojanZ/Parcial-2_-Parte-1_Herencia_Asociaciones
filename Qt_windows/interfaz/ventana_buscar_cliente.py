@@ -7,8 +7,7 @@ from controladores.controlador_cliente import ControladorCliente
 class VentanaBuscarCliente(QtWidgets.QMainWindow):
     def __init__(self, accion, controlador_cliente):
         super(VentanaBuscarCliente, self).__init__()
-        self.controller = controlador_cliente
-        self.main = controlador_cliente
+        self.controlador = controlador_cliente
         ui_path = os.path.join(os.path.dirname(__file__), 'ventana_buscar_cliente.ui')
         uic.loadUi(ui_path, self)
         self.pushButton_enviar.clicked.connect(self.enviar_datos)
@@ -27,18 +26,18 @@ class VentanaBuscarCliente(QtWidgets.QMainWindow):
         else:
             
             if self.accion == "Agregar cliente":
-                if self.controller.agregar_cliente(nombre, dni):
+                if self.controlador.agregar_cliente(nombre, dni):
                     QtWidgets.QMessageBox.information(self, 'Éxito', 'Cliente agregado exitosamente.')
                     
                 else:
                     QtWidgets.QMessageBox.warning(self, 'Error', f"Ya existe un cliente con DNI {dni}.")
             elif self.accion == "Modificar cliente":
-                if self.controller.actualizar_cliente(dni, nombre):
+                if self.controlador.actualizar_cliente(dni, nombre):
                     QtWidgets.QMessageBox.information(self, 'Éxito', 'Cliente modificado exitosamente.')
                 else:
                     QtWidgets.QMessageBox.warning(self, 'Error', f"No se encontró un cliente con DNI {dni}.")
             elif self.accion == "Eliminar cliente":
-                if self.controller.eliminar_cliente(dni):
+                if self.controlador.eliminar_cliente(dni):
                     QtWidgets.QMessageBox.information(self, 'Éxito', 'Cliente eliminado exitosamente.')
                 else:
                     QtWidgets.QMessageBox.warning(self, 'Error', f"No se encontró un cliente con DNI {dni}.")

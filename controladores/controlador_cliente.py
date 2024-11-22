@@ -28,21 +28,21 @@ class ControladorCliente:
         
     def buscar_cliente(self, id, accion):
         try:
-            cliente = self.cliente_crud.leer_clientes(id)
             if accion == "Eliminar":
-                self.cliente_crud.eliminar_cliente(id)  
+                self.eliminar_cliente(id)  
 
             elif accion == "Actualizar":
                 self.cliente_crud.actualizar_cliente(id)
 
-            return cliente
-
+            return None
         except ValueError as e:
             print(e)
             return None
 
     def eliminar_cliente(self, dni):
         try:
+            print("Eliminando cliente")
+            print(self.obtener_clientes())
             self.cliente_crud.eliminar_cliente(dni)
             return True
         except ValueError as e:

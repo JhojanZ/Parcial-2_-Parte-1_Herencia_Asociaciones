@@ -38,7 +38,7 @@ class ControladorVentanas:
 
     # Buscar id
     def abrir_ventana_buscar_id(self, tipo):
-        self.ventana_buscar_id = VentanaBuscarPorId(tipo)
+        self.ventana_buscar_id = VentanaBuscarPorId(tipo, self.controlador_productos, self.controlador_cliente)
         self.ventana_buscar_id.show()
 
     # mostrar datos
