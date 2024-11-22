@@ -4,8 +4,9 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Qt_windows.interfaz.ventana_buscar_cliente import VentanaBuscarCliente
-from Qt_windows.interfaz.ventana_buscar_producto import VentanaBuscarProducto
+from Qt_windows.interfaz.ventana_agregar_producto import VentanaBuscarProducto
 from Qt_windows.interfaz.ventana_mostrar_datos import VentanaMostrarDatos
+from Qt_windows.interfaz.ventana_buscar_por_id import VentanaBuscarPorId
 
 from controladores.controlador_cliente import ControladorCliente
 from controladores.controlador_productos import ControladorProductos
@@ -17,6 +18,9 @@ class ControladorVentanas:
         self.controlador_cliente = ControladorCliente(main_window)
         self.controlador_productos = ControladorProductos(main_window)
         self.ventana_buscar_producto = None
+        self.ventana_buscar_cliente = None
+        self.ventana_mostrar_datos = None
+        self.ventana_buscar_id = None
 
     def mostrar_main_window(self):
         self.main_window.show()
@@ -31,6 +35,11 @@ class ControladorVentanas:
     def abrir_ventana_buscar_producto(self, accion):
         self.ventana_buscar_producto = VentanaBuscarProducto(accion)
         self.ventana_buscar_producto.show()
+
+    # Buscar id
+    def abrir_ventana_buscar_id(self, tipo):
+        self.ventana_buscar_id = VentanaBuscarPorId(tipo)
+        self.ventana_buscar_id.show()
 
     # mostrar datos
     def abrir_ventana_mostrar_datos(self, tipo):
@@ -49,6 +58,7 @@ class ControladorVentanas:
             pass
         else:
             return [[], []]
+        
 
 
     def convertir_lista_objetos_a_lista_diccionarios(self, lista_objetos):

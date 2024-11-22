@@ -25,6 +25,14 @@ class ControladorCliente:
         except ValueError as e:
             print(e)
             return False
+        
+    def buscar_cliente(self, id):
+        try:
+            cliente = self.cliente_crud.leer_cliente(id)
+            return cliente
+        except ValueError as e:
+            print(e)
+            return None
 
     def eliminar_cliente(self, dni):
         try:

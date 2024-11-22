@@ -22,6 +22,14 @@ class ControladorProductos:
         except ValueError as e:
             print(e)
             return False
+        
+    def buscar_producto(self, id):
+        try:
+            producto = self.producto_crud.buscar_producto(id)
+            return producto
+        except ValueError as e:
+            print(e)
+            return None
 
     def eliminar_producto(self, registro_ica):
         try:

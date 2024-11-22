@@ -1,14 +1,16 @@
 import sys
 from PyQt5 import QtWidgets, uic
 import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from controladores.controlador_productos import ControladorProductos
+
 
 class VentanaBuscarProducto(QtWidgets.QMainWindow):
     def __init__(self, accion):
         super(VentanaBuscarProducto, self).__init__()
-        ui_path = os.path.join(os.path.dirname(__file__), 'ventana_buscar_producto.ui')
+        ui_path = os.path.join(os.path.dirname(__file__), 'ventana_agregar_producto.ui')
         uic.loadUi(ui_path, self)
-        self.controller_producto = ControladorProductos()
+        self.controlador_producto = ControladorProductos()
         self.pushButton_enviar.clicked.connect(self.enviar_datos)
         self.datos_producto = []
         self.accion = accion
@@ -33,6 +35,18 @@ class VentanaBuscarProducto(QtWidgets.QMainWindow):
         if not all([nombre, registro_ica, frecuencia_aplicacion, valor_producto, cantidad]):
             QtWidgets.QMessageBox.warning(self, 'Alerta', 'Por favor, complete todos los campos.')
         else:
+            datos = {
+                'registro_ica': registro_ica,
+                'nombre_producto': nombre,
+                'frecuencia_aplicacion': frecuencia_aplicacion,
+                'valor': valor_producto,
+                'cantidad': cantidad
+            }
+            self.controlador_producto.agregar_producto(**datos)
+
+            
+
+"""
             if self.accion == "Agregar producto":
                 if self.controller_producto.agregar_producto(nombre, registro_ica, frecuencia_aplicacion, valor_producto, cantidad):
                     QtWidgets.QMessageBox.information(self, 'Éxito', 'Producto agregado exitosamente.')
@@ -48,3 +62,4 @@ class VentanaBuscarProducto(QtWidgets.QMainWindow):
                     QtWidgets.QMessageBox.information(self, 'Éxito', 'Cliente eliminado exitosamente.')
                 else:
                     QtWidgets.QMessageBox.warning(self, 'Error', f"No se encontró un producto con registro ICA {registro_ica}.")
+"""

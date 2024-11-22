@@ -29,22 +29,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pushButton_mostrar_lista_productos.clicked.connect(self.pushButtonMostrarProductos)
         self.pushButton_mostrar_facturas.clicked.connect(self.pushButtonMostrarFactura)
 
-        
-        """
-        self.pushButton_agregar_producto.clicked.connect(self.openAgregarProductoWindow)
-        self.pushButton_modificar_producto.clicked.connect(self.pushButtonModificarProducto)
-        self.pushButton_eliminar_producto.clicked.connect(self.pushButtonEliminarProducto)
-
-        self.pushButton_agregar_cliente.clicked.connect(self.pushAgregarCliente)
-        self.pushButton_modificar_cliente.clicked.connect(self.pushModificarCliente)
-        self.pushButton_eliminar_cliente.clicked.connect(self.pushEliminarCliente)
-
-        self.pushButton_mostrar_lista_clientes.clicked.connect(self.pushButtonMostrarClientes)
-        self.pushButton_mostrar_lista_productos.clicked.connect(self.pushButtonMostrarProductos)
-
-        self.pushButton_crear_factura.clicked.connect(self.pushButtonCrearFactura)
-        self.pushButton_mostrar_facturas.clicked.connect(self.pushButtonMostrarFactura)
-        """
 
     # Clientes
     def pushAgregarCliente(self):
@@ -52,11 +36,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.controlador_ventanas.abrir_ventana_buscar_cliente(accion)
 
     def pushModificarCliente(self):
-        accion = "Modificar cliente"
+        accion = ["Modificar", "cliente"]
         self.controlador_ventanas.abrir_ventana_buscar_id(accion)
 
     def pushEliminarCliente(self):
-        accion = "Eliminar cliente"
+        accion = ["Eliminar", "cliente"]
         self.controlador_ventanas.abrir_ventana_buscar_id(accion)
 
     # Productos
@@ -65,13 +49,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.controlador_ventanas.abrir_ventana_buscar_producto(accion)
 
     def pushModificarProducto(self):
-        accion = "Modificar producto"
+        accion = ["Modificar", "producto"]
         self.controlador_ventanas.abrir_ventana_buscar_id(accion)
 
     def pusEliminarProducto(self):
-        accion = "Eliminar producto"
+        accion = ["Eliminar", "producto"]
         self.controlador_ventanas.abrir_ventana_buscar_id(accion)
 
+    # Facturas
+    def pushAgregarFactura(self):
+        pass
+
+    def pushModificarFactura(self):
+        pass
 
     # Mostrar datos
     def pushButtonMostrarClientes(self):
@@ -85,63 +75,6 @@ class MainWindow(QtWidgets.QMainWindow):
     def pushButtonMostrarFactura(self):
         tipo = "facturas"
         self.controlador_ventanas.abrir_ventana_mostrar_datos(tipo)
-"""
-    # Clientes
-    def pushAgregarCliente(self):
-        self.ventana_buscar_cliente = VentanaBuscarCliente("Agregar cliente")
-        self.ventana_buscar_cliente.show()
-
-
-    def pushModificarCliente(self):
-        self.ventana_buscar_cliente = VentanaBuscarCliente("Modificar cliente")
-        self.ventana_buscar_cliente.show()
-
-    def pushEliminarCliente(self): 
-        self.ventana_buscar_cliente = VentanaBuscarCliente("Eliminar cliente")
-        self.ventana_buscar_cliente.show()
-        
-
-    # Productos
-    def openAgregarProductoWindow(self):
-        self.ventana_buscar_producto = VentanaBuscarProducto("Agregar producto")
-        self.ventana_buscar_producto.show()
-
-    def pushButtonModificarProducto(self):
-        self.ventana_buscar_producto = VentanaBuscarProducto("Modificar producto")
-        self.ventana_buscar_producto.show()
-
-    def pushButtonEliminarProducto(self):
-        self.ventana_buscar_producto = VentanaBuscarProducto("Eliminar producto")
-        self.ventana_buscar_producto.show()
-
-    # Mostrar tipo
-    def pushButtonMostrarClientes(self):
-        cabezera = ["Nombre", "DNI"]
-        clientes = self.controlador_cliente.obtener_clientes()
-        clientes.append(["jjjjj", "123"]) #testig
-
- 
-        self.ventana_mostrar_datos = VentanaMostrarDatos(cabezera, clientes)
-        self.ventana_mostrar_datos.show()
-
-    def pushButtonMostrarProductos(self):
-        cabezera = [] #implementar funcion para obtener los encabezados
-        productos = [] #implementar funcion para obtener los productos
-        self.ventana_mostrar_datos = VentanaMostrarDatos(cabezera, productos)
-        self.ventana_mostrar_datos.show()
-
-    # Factura
-    def pushButtonCrearFactura(self):
-        self.ventana_buscar_cliente = VentanaBuscarCliente("Crear factura")
-        self.ventana_buscar_cliente.show()
-
-    def pushButtonMostrarFactura(self):
-        cabezera = [] #implementar funcion para obtener los encabezados
-        facturas = [] #implementar funcion para obtener las facturas
-        self.ventana_mostrar_datos = VentanaMostrarDatos(cabezera, facturas)
-        self.ventana_mostrar_datos.show()
-
-        """
         
 
 if __name__ == "__main__":
