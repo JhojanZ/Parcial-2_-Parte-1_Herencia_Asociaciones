@@ -169,14 +169,6 @@
     <string>Cancelar</string>
    </property>
   </widget>
-  <widget class="QMessageBox" name="messageBox">
-   <property name="windowTitle">
-    <string>Alerta</string>
-   </property>
-   <property name="text">
-    <string>Por favor, complete todos los campos.</string>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections/>

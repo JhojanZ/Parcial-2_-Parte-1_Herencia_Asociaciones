@@ -6,39 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>535</width>
-    <height>301</height>
+    <width>545</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton_enviar">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>250</y>
-     <width>80</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Enviar</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_enviar_2">
-   <property name="geometry">
-    <rect>
-     <x>340</x>
-     <y>250</y>
-     <width>80</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Cancelar</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_nombre">
    <property name="geometry">
     <rect>
@@ -50,6 +24,35 @@
    </property>
    <property name="text">
     <string>Nombre del Cliente</string>
+   </property>
+  </widget>
+  <widget class="QMessageBox" name="messageBox" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="windowTitle">
+    <string>Alerta</string>
+   </property>
+   <property name="text" stdset="0">
+    <string>Por favor, complete todos los campos.</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit_dni">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>113</y>
+     <width>517</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="maximumBlockCount">
+    <number>1</number>
    </property>
   </widget>
   <widget class="QPlainTextEdit" name="plainTextEdit_nombre">
@@ -78,33 +81,30 @@
     <string>DNI del Cliente</string>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit_dni">
+  <widget class="QPushButton" name="pushButton_enviar_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>113</y>
-     <width>517</width>
-     <height>31</height>
+     <x>340</x>
+     <y>250</y>
+     <width>80</width>
+     <height>28</height>
     </rect>
    </property>
-   <property name="maximumBlockCount">
-    <number>1</number>
+   <property name="text">
+    <string>Cancelar</string>
    </property>
   </widget>
-  <widget class="QMessageBox" name="messageBox" native="true">
+  <widget class="QPushButton" name="pushButton_enviar">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>100</width>
-     <height>30</height>
+     <x>440</x>
+     <y>250</y>
+     <width>80</width>
+     <height>28</height>
     </rect>
    </property>
-   <property name="windowTitle">
-    <string>Alerta</string>
-   </property>
-   <property name="text" stdset="0">
-    <string>Por favor, complete todos los campos.</string>
+   <property name="text">
+    <string>Enviar</string>
    </property>
   </widget>
  </widget>
