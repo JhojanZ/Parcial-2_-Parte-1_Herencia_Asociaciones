@@ -48,3 +48,12 @@ class ControladorCliente:
         except ValueError as e:
             print(e)
             return False
+        
+            
+    def agregar_factura(self, fecha, valor_total_compra, producto_control):
+        try:
+            self.cliente_crud.crear_factura(fecha, valor_total_compra, producto_control)
+            return True
+        except ValueError as e:
+            print(e)
+            return False

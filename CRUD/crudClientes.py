@@ -1,4 +1,5 @@
 from modelo.cliente import Cliente
+from modelo.factura import Factura
 
 class ClienteCrud:
     def __init__(self):
@@ -42,6 +43,15 @@ class ClienteCrud:
         if cliente is None:
             print(f"No se encontró un cliente con cédula: {dni}")
         return cliente 
+    
+    def agregar_factura(self, dni, fecha, valor_total_compra, producto_control):
+        if dni not in self.clientes:
+            raise ValueError(f"No se encontró un cliente con DNI {dni}.")
+        cliente = self.clientes[dni]
+        factura = Factura(fecha, valor_total_compra, producto_control)
+        cliente.facturas.append(factura)
+        print(f"Factura para cliente con DNI {dni} creada correctamente.")
+        print("Facturas actualmente en el sistema:", cliente.facturas)
 
     def mostrar_facturas(self, cliente):
         if not cliente.facturas:

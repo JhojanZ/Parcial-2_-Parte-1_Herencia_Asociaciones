@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>40</y>
+     <x>20</x>
+     <y>90</y>
      <width>55</width>
      <height>16</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>120</y>
+     <x>20</x>
+     <y>150</y>
      <width>55</width>
      <height>16</height>
     </rect>
@@ -42,9 +42,9 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>40</y>
-     <width>55</width>
+     <x>300</x>
+     <y>30</y>
+     <width>71</width>
      <height>16</height>
     </rect>
    </property>
@@ -55,8 +55,8 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>120</y>
+     <x>290</x>
+     <y>90</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -68,8 +68,8 @@
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>40</y>
+     <x>90</x>
+     <y>90</y>
      <width>141</width>
      <height>22</height>
     </rect>
@@ -79,7 +79,7 @@
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>120</y>
+     <y>90</y>
      <width>141</width>
      <height>22</height>
     </rect>
@@ -89,7 +89,7 @@
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>40</y>
+     <y>30</y>
      <width>141</width>
      <height>22</height>
     </rect>
@@ -99,7 +99,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>120</y>
+     <y>150</y>
      <width>131</width>
      <height>22</height>
     </rect>
@@ -129,6 +129,29 @@
    </property>
    <property name="text">
     <string>Enviar</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>55</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>DNI</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_dni">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>30</y>
+     <width>141</width>
+     <height>22</height>
+    </rect>
    </property>
   </widget>
  </widget>

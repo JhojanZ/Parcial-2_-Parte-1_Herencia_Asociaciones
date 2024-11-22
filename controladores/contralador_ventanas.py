@@ -7,6 +7,7 @@ from Qt_windows.interfaz.ventana_buscar_cliente import VentanaBuscarCliente
 from Qt_windows.interfaz.ventana_agregar_producto import VentanaBuscarProducto
 from Qt_windows.interfaz.ventana_mostrar_datos import VentanaMostrarDatos
 from Qt_windows.interfaz.ventana_buscar_por_id import VentanaBuscarPorId
+from Qt_windows.interfaz.ventana_factura import VentanaFactura
 
 from controladores.controlador_cliente import ControladorCliente
 from controladores.controlador_productos import ControladorProductos
@@ -21,6 +22,7 @@ class ControladorVentanas:
         self.ventana_buscar_cliente = None
         self.ventana_mostrar_datos = None
         self.ventana_buscar_id = None
+        self.VentanaFactura = None
 
     def mostrar_main_window(self):
         self.main_window.show()
@@ -32,9 +34,16 @@ class ControladorVentanas:
         self.ventana_buscar_cliente = VentanaBuscarCliente(accion, self.controlador_cliente)
         self.ventana_buscar_cliente.show()
 
+    def ventana_factura(self):
+        self.ventana_factura = VentanaFactura(self.controlador_cliente)
+
     def abrir_ventana_buscar_producto(self, accion):
         self.ventana_buscar_producto = VentanaBuscarProducto(accion, self.controlador_productos)
         self.ventana_buscar_producto.show()
+
+    def abrir_ventana_factura(self):
+        self.VentanaFactura = VentanaFactura(self.controlador_cliente)
+        self.VentanaFactura.show()
 
     # Buscar id
     def abrir_ventana_buscar_id(self, tipo):

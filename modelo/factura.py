@@ -1,12 +1,11 @@
 from modelo.productoControl import ProductoControl
-from modelo.antibioticos import Antibiotico
 
 class Factura:
-    def __init__(self, fecha, valor_total_compra, productos=[], antibioticos=[]):
+    def __init__(self, fecha, valor_total_compra, productos=[]):
         self.__fecha = fecha
         self.__valor_total_compra = valor_total_compra
         self.__producto_control = productos
-        self.__antibiotico = antibioticos
+        #self.__antibiotico = antibioticos
     
     @property
     def fecha(self):
@@ -28,21 +27,21 @@ class Factura:
     def producto_control(self):
         return self.__producto_control
 
-    @property
+    """ @property
     def antibiotico(self):
-        return self.__antibiotico
+        return self.__antibiotico """
     
     def asociar_producto_control(self, producto_control):
         self.__producto_control.append(producto_control)
 
-    def asociar_antibiotico(self, antibiotico):
-        self.__antibiotico.append(antibiotico)
+    """ def asociar_antibiotico(self, antibiotico):
+        self.__antibiotico.append(antibiotico) """
     
-    def realizar_venta(self, producto_control = None, antibiotico = None, cantidad = 1):
+    def realizar_venta(self, producto_control = None, cantidad = 1):
         if producto_control != None:
             self.asociar_producto_control(producto_control)
             self.__valor_total_compra = producto_control.valor * cantidad
             
-        if antibiotico != None:
+        """ if antibiotico != None:
             self.asociar_antibiotico(antibiotico)
-            self.__valor_total_compra = antibiotico.precio * cantidad
+            self.__valor_total_compra = antibiotico.precio * cantidad """

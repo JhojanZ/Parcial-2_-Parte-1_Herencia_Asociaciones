@@ -27,6 +27,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.pushButton_mostrar_lista_clientes.clicked.connect(self.pushButtonMostrarClientes)
         self.pushButton_mostrar_lista_productos.clicked.connect(self.pushButtonMostrarProductos)
+
+        self.pushButton_crear_factura.clicked.connect(self.pushAgregarFactura)
         self.pushButton_mostrar_facturas.clicked.connect(self.pushButtonMostrarFactura)
 
 
@@ -58,10 +60,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     # Facturas
     def pushAgregarFactura(self):
-        pass
-
-    def pushModificarFactura(self):
-        pass
+        self.controlador_ventanas.abrir_ventana_factura()
 
     # Mostrar datos
     def pushButtonMostrarClientes(self):
