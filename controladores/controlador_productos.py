@@ -1,7 +1,7 @@
 from CRUD.crudProductos import ProductoControlCrud
 
 class ControladorProductos:
-    def __init__(self, cliente_crud=None):
+    def __init__(self, clienteproducto_crud):
         self.producto_crud = ProductoControlCrud()
 
     def agregar_producto(self, **kwargs):
@@ -23,17 +23,24 @@ class ControladorProductos:
             print(e)
             return False
         
-    def buscar_producto(self, id):
+    def buscar_producto(self, id, accion):
         try:
             producto = self.producto_crud.buscar_producto(id)
+            if accion == "Eliminar":
+                self.eliminar_producto(id)
+
+            elif accion == "Modificar":
+                pass
+
             return producto
         except ValueError as e:
             print(e)
             return None
+        
 
     def eliminar_producto(self, registro_ica):
         try:
-            self.cliente_crud.eliminar_cliente(registro_ica)
+            self.producto_crud.eliminar_producto(registro_ica)
             return True
         except ValueError as e:
             print(e)
@@ -46,3 +53,4 @@ class ControladorProductos:
         except Exception as e:
             print(f"Error al obtener la lista de productos: {e}")
             return []
+         

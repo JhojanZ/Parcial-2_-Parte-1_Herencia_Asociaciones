@@ -6,13 +6,14 @@ from controladores.controlador_cliente import ControladorCliente
 from controladores.controlador_productos import ControladorProductos
 
 class VentanaBuscarPorId(QtWidgets.QMainWindow):
-    def __init__(self, dato):
+    def __init__(self, dato, controlador_productos, controlador_cliente):
         super(VentanaBuscarPorId, self).__init__()
         ui_path = os.path.join(os.path.dirname(__file__), 'ventana_buscar_por_id.ui')
         uic.loadUi(ui_path, self)
+    
 
-        self.controlador_cliente = ControladorCliente(self)
-        self.controlador_productos = ControladorProductos(self)
+        self.controlador_productos = controlador_productos
+        self.controlador_cliente = controlador_cliente
 
         self.pushButton_buscar.clicked.connect(self.buscar_por_id)
         self.label_inicio = self.findChild(QtWidgets.QLabel, 'label_inicio')
