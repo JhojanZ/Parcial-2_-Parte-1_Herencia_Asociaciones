@@ -4,6 +4,7 @@ import sys
 
 from interfaz.ventana_buscar_producto import VentanaBuscarProducto
 from interfaz.ventana_buscar_cliente import VentanaBuscarCliente
+from interfaz.ventana_mostrar_datos import VentanaMostrarDatos
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -21,6 +22,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pushButton_agregar_cliente.clicked.connect(self.pushAgregarCliente)
         self.pushButton_modificar_cliente.clicked.connect(self.pushModificarCliente)
         self.pushButton_eliminar_cliente.clicked.connect(self.pushEliminarCliente)
+
+        self.pushButton_mostrar_lista_clientes.clicked.connect(self.pushButtonMostrarClientes)
+        self.pushButton_mostrar_lista_productos.clicked.connect(self.pushButtonMostrarProductos)
 
 
     # Clientes
@@ -48,6 +52,19 @@ class MainWindow(QtWidgets.QMainWindow):
     def pushButtonEliminarProducto(self):
         self.ventana_buscar_producto = VentanaBuscarProducto("Eliminar producto")
         self.ventana_buscar_producto.show()
+
+    # Mostrar datos
+    def pushButtonMostrarClientes(self):
+        cabezera = [] #implementar funcion para obtener los encabezados
+        clientes = [] #implementar funcion para obtener los clientes
+        self.ventana_mostrar_datos = VentanaMostrarDatos(cabezera, clientes)
+        self.ventana_mostrar_datos.show()
+
+    def pushButtonMostrarProductos(self):
+        cabezera = [] #implementar funcion para obtener los encabezados
+        productos = [] #implementar funcion para obtener los productos
+        self.ventana_mostrar_datos = VentanaMostrarDatos(cabezera, productos)
+        self.ventana_mostrar_datos.show()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
