@@ -1,8 +1,7 @@
-from modelo.cliente import Cliente
 from CRUD.crudClientes import ClienteCrud
 
 class ControladorCliente:
-    def __init__(self):
+    def __init__(self, cliente_crud=None):
         self.cliente_crud = ClienteCrud()
 
     def agregar_cliente(self, nombre, dni):

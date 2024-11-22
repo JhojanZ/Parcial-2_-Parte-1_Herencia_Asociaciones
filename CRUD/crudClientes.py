@@ -13,8 +13,9 @@ class ClienteCrud:
         print("Clientes actualmente en el sistema:", self.clientes)  # Verificación
 
     def leer_clientes(self):
+        print(self.clientes.__len__())  # Verificación
         if not self.clientes:
-            return None
+            return []
 
         clientes = []
         for cliente in self.clientes.values():

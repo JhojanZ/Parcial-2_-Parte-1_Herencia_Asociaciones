@@ -1,8 +1,7 @@
-from modelo.productoControl import ProductoControl
 from CRUD.crudProductos import ProductoControlCrud
 
 class ControladorProductos:
-    def __init__(self):
+    def __init__(self, cliente_crud=None):
         self.producto_crud = ProductoControlCrud()
 
     def agregar_producto(self, **kwargs):

@@ -15,7 +15,7 @@ class ClienteCrud:
 
     def leer_clientes(self):
         if not self.clientes:
-            return None
+            return []
 
         clientes = []
         for cliente in self.clientes.values():
@@ -71,9 +71,12 @@ class ProductoControlCrud:
     def leer_productos(self):
         if not self.productos:
             print("No hay productos registrados.")
-        else:
-            for producto in self.productos.values():
-                return producto
+            return []
+        
+        productos = []
+        for producto in self.productos.values():
+            productos.append(producto)
+        return productos
 
     def actualizar_producto(self, registro_ica, nombre_producto=None, valor=None, cantidad=None):
         if registro_ica not in self.productos:
