@@ -1,12 +1,14 @@
 import sys
 from PyQt5 import QtWidgets, uic
 import os
+from controladores.controlador_productos import ControladorProductos
 
 class VentanaBuscarProducto(QtWidgets.QMainWindow):
     def __init__(self, accion):
         super(VentanaBuscarProducto, self).__init__()
         ui_path = os.path.join(os.path.dirname(__file__), 'ventana_buscar_producto.ui')
         uic.loadUi(ui_path, self)
+        self.controller_producto = ControladorProductos()
         self.pushButton_enviar.clicked.connect(self.enviar_datos)
         self.datos_producto = []
         self.accion = accion
@@ -31,12 +33,18 @@ class VentanaBuscarProducto(QtWidgets.QMainWindow):
         if not all([nombre, registro_ica, frecuencia_aplicacion, valor_producto, cantidad]):
             QtWidgets.QMessageBox.warning(self, 'Alerta', 'Por favor, complete todos los campos.')
         else:
-            self.datos_producto.append({
-                'nombre': nombre,
-                'registro_ica': registro_ica,
-                'frecuencia_aplicacion': frecuencia_aplicacion,
-                'valor_producto': valor_producto,
-                'cantidad': cantidad,
-                'accion': self.accion
-            })
-            QtWidgets.QMessageBox.information(self, 'Éxito', 'Datos guardados exitosamente.')
+            if self.accion == "Agregar producto":
+                if self.controller_producto.agregar_producto(nombre, registro_ica, frecuencia_aplicacion, valor_producto, cantidad):
+                    QtWidgets.QMessageBox.information(self, 'Éxito', 'Producto agregado exitosamente.')
+                else:
+                    QtWidgets.QMessageBox.warning(self, 'Error', f"Ya existe un producto con registro ICA {registro_ica}.")
+            elif self.accion == "Modificar cliente":
+                if self.controller_producto.actualizar_producto(registro_ica, nombre, valor_producto, cantidad):
+                    QtWidgets.QMessageBox.information(self, 'Éxito', 'Cliente modificado exitosamente.')
+                else:
+                    QtWidgets.QMessageBox.warning(self, 'Error', f"No se encontró un producto con registro ICA {registro_ica}.")
+            elif self.accion == "Eliminar cliente":
+                if self.controller_producto.eliminar_producto(registro_ica):
+                    QtWidgets.QMessageBox.information(self, 'Éxito', 'Cliente eliminado exitosamente.')
+                else:
+                    QtWidgets.QMessageBox.warning(self, 'Error', f"No se encontró un producto con registro ICA {registro_ica}.")
