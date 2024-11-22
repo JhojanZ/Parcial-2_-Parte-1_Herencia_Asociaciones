@@ -2,14 +2,15 @@ import sys
 from PyQt5 import QtWidgets, uic
 import os
 
-class VentanaAgregarProducto(QtWidgets.QMainWindow):
-    def __init__(self):
-        print("Ventana agregar producto")
-        super(VentanaAgregarProducto, self).__init__()
-        ui_path = os.path.join(os.path.dirname(__file__), 'ventana_agregar_producto.ui')
+class VentanaBuscarProducto(QtWidgets.QMainWindow):
+    def __init__(self, accion):
+        super(VentanaBuscarProducto, self).__init__()
+        ui_path = os.path.join(os.path.dirname(__file__), 'ventana_buscar_producto.ui')
         uic.loadUi(ui_path, self)
         self.pushButton_enviar.clicked.connect(self.enviar_datos)
         self.datos_producto = []
+        self.accion = accion
+        print(self.accion)
 
     def enviar_datos(self):
         nombre = self.findChild(QtWidgets.QPlainTextEdit, 'plainTextEdit_nombre').toPlainText()
@@ -18,7 +19,7 @@ class VentanaAgregarProducto(QtWidgets.QMainWindow):
         valor_producto = self.findChild(QtWidgets.QPlainTextEdit, 'plainTextEdit_valor_producto').toPlainText()
         cantidad = self.findChild(QtWidgets.QPlainTextEdit, 'plainTextEdit_cantidad').toPlainText()
 
-        # Validate if frecuencia_aplicacion, valor_producto, and cantidad are valid floats
+        # Validacion de que los campos sean numericos
         try:
             frecuencia_aplicacion = float(frecuencia_aplicacion)
             valor_producto = float(valor_producto)

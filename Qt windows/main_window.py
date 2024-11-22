@@ -3,6 +3,8 @@ import os
 import sys
 
 from interfaz.ventana_agregar_producto import VentanaAgregarProducto
+from interfaz.ventana_modificar_producto import VentanaModificarProductos
+from interfaz.ventana_buscar_producto import VentanaBuscarProducto
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -13,12 +15,24 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setupUi(self)
 
     def setupUi(self, MainWindow):
-        self.pushButton_agregar_productos.clicked.connect(self.openAgregarProductoWindow)
+        self.pushButton_agregar_producto.clicked.connect(self.openAgregarProductoWindow)
+        self.pushButton_modificar_producto.clicked.connect(self.pushButtonModificarProducto)
+        self.pushButton_eliminar_producto.clicked.connect(self.pushButtonEliminarProducto)
 
+    # Clientes
+
+    # Productos
     def openAgregarProductoWindow(self):
-        print("Agregar producto")     
-        self.ventana_agregar_producto = VentanaAgregarProducto()
-        self.ventana_agregar_producto.show()
+        self.ventana_buscar_producto = VentanaBuscarProducto("Agregar producto")
+        self.ventana_buscar_producto.show()
+
+    def pushButtonModificarProducto(self):
+        self.ventana_buscar_producto = VentanaBuscarProducto("Modificar producto")
+        self.ventana_buscar_producto.show()
+
+    def pushButtonEliminarProducto(self):
+        self.ventana_buscar_producto = VentanaBuscarProducto("Eliminar producto")
+        self.ventana_buscar_producto.show()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

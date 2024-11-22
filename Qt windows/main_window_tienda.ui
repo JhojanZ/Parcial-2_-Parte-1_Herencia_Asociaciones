@@ -50,7 +50,6 @@
         <property name="font">
          <font>
           <pointsize>18</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -92,7 +91,7 @@
          <string>Menú</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_agregar_clientes">
+       <widget class="QPushButton" name="pushButton_agregar_cliente">
         <property name="geometry">
          <rect>
           <x>40</x>
@@ -107,10 +106,10 @@
          </font>
         </property>
         <property name="text">
-         <string>Agregar Clientes</string>
+         <string>Agregar Cliente</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_agregar_productos">
+       <widget class="QPushButton" name="pushButton_agregar_producto">
         <property name="geometry">
          <rect>
           <x>390</x>
@@ -125,14 +124,14 @@
          </font>
         </property>
         <property name="text">
-         <string>Agregar Productos</string>
+         <string>Agregar Producto</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_crear_factura">
         <property name="geometry">
          <rect>
           <x>40</x>
-          <y>160</y>
+          <y>400</y>
           <width>311</width>
           <height>51</height>
          </rect>
@@ -146,7 +145,43 @@
          <string>Crear Factura</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_eliminar_clientes">
+       <widget class="QPushButton" name="pushButton_eliminar_producto">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>240</y>
+          <width>311</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Eliminar Producto</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_modificar_cliente">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>160</y>
+          <width>311</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Modificar Cliente</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_modificar_producto">
         <property name="geometry">
          <rect>
           <x>390</x>
@@ -161,46 +196,10 @@
          </font>
         </property>
         <property name="text">
-         <string>Eliminar Clientes</string>
+         <string>Modificar Producto</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_modificar_clientes">
-        <property name="geometry">
-         <rect>
-          <x>40</x>
-          <y>240</y>
-          <width>311</width>
-          <height>51</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Modificar Clientes</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_modificar_productos">
-        <property name="geometry">
-         <rect>
-          <x>390</x>
-          <y>240</y>
-          <width>311</width>
-          <height>51</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Modificar Productos</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_mostrar_lista">
+       <widget class="QPushButton" name="pushButton_mostrar_lista_clientes">
         <property name="geometry">
          <rect>
           <x>40</x>
@@ -215,14 +214,14 @@
          </font>
         </property>
         <property name="text">
-         <string>Mostrar Lista de Clientes</string>
+         <string>Mostrar Lista de Cliente</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_mostrar_facturas">
         <property name="geometry">
          <rect>
           <x>390</x>
-          <y>320</y>
+          <y>400</y>
           <width>311</width>
           <height>51</height>
          </rect>
@@ -234,6 +233,42 @@
         </property>
         <property name="text">
          <string>Mostrar Todas las Facturas</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_eliminar_cliente">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>240</y>
+          <width>311</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Eliminar Cliente</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_mostrar_lista_productos">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>320</y>
+          <width>311</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Mostrar Lista de Productos</string>
         </property>
        </widget>
       </widget>
