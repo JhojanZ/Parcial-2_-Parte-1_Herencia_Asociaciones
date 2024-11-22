@@ -26,6 +26,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pushButton_mostrar_lista_clientes.clicked.connect(self.pushButtonMostrarClientes)
         self.pushButton_mostrar_lista_productos.clicked.connect(self.pushButtonMostrarProductos)
 
+        self.pushButton_crear_factura.clicked.connect(self.pushButtonCrearFactura)
+        self.pushButton_mostrar_facturas.clicked.connect(self.pushButtonMostrarFactura)
+
 
     # Clientes
     def pushAgregarCliente(self):
@@ -65,6 +68,18 @@ class MainWindow(QtWidgets.QMainWindow):
         productos = [] #implementar funcion para obtener los productos
         self.ventana_mostrar_datos = VentanaMostrarDatos(cabezera, productos)
         self.ventana_mostrar_datos.show()
+
+    # Factura
+    def pushButtonCrearFactura(self):
+        self.ventana_buscar_cliente = VentanaBuscarCliente("Crear factura")
+        self.ventana_buscar_cliente.show()
+
+    def pushButtonMostrarFactura(self):
+        cabezera = [] #implementar funcion para obtener los encabezados
+        facturas = [] #implementar funcion para obtener las facturas
+        self.ventana_mostrar_datos = VentanaMostrarDatos(cabezera, facturas)
+        self.ventana_mostrar_datos.show()
+        
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
