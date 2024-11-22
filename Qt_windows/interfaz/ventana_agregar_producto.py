@@ -62,4 +62,4 @@ class VentanaBuscarProducto(QtWidgets.QMainWindow):
                     QtWidgets.QMessageBox.information(self, 'Éxito', 'Cliente eliminado exitosamente.')
                 else:
                     QtWidgets.QMessageBox.warning(self, 'Error', f"No se encontró un producto con registro ICA {registro_ica}.")
-"""
+""" 

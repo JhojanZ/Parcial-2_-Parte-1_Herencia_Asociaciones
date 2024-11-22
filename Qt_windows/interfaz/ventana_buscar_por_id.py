@@ -32,10 +32,10 @@ class VentanaBuscarPorId(QtWidgets.QMainWindow):
         id = self.findChild(QtWidgets.QLineEdit, 'lineEdit_id').text()
         print(f"Buscando por ID: {id}")
         if self.tipo == "cliente":
-            cliente = self.controlador_cliente.buscar_cliente(id)
+            cliente = self.controlador_cliente.buscar_cliente(id, self.accion)
             print(cliente)
         elif self.tipo == "producto":
-            producto = self.controlador_productos.buscar_producto(id)
+            producto = self.controlador_productos.buscar_producto(id, self.accion)
             print(producto)
 
 
